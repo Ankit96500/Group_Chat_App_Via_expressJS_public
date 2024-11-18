@@ -32,17 +32,30 @@ app.use("/chat",chatRoutes);
 // import models:
 import User from "./models/userM.js";
 import Chat from "./models/chatsM.js";
+import Group from "./models/groupM.js";
 
 // established association:
 // USER <--> CHATS
-User.hasMany(Chat,{foreignKey:"UserID",as:"chattb",onDelete:"CASCADE"});
-Chat.belongsTo(User,{foreignKey:"UserID",as:"usertb"});
+// User.hasMany(Chat,{foreignKey:"UserID",as:"chattb",onDelete:"CASCADE"});
+// Chat.belongsTo(User,{foreignKey:"UserID",as:"usertb"});
+
+// USER <---> GROUP
+User.hasMany(Group,{foreignKey:"UserID",as:"grouptb",onDelete:"CASCADE"})
+Group.belongsTo(User,{foreignKey:"UserID" ,as:"usertb"})
+
+// GROUP<---> CHATS
+Group.hasMany(Chat,{foreignKey:"GroupID",as:"chattb",onDelete:"CASCADE"});
+Chat.belongsTo(Group,{foreignKey:"GroupID",as:"grouptb"});
+
+
+
 
 
 // port listening
 sequelize
 .sync()
-// .sync({force:true})
+// Chat.sync({force:true})
+// .sync({alter:true})
 .then(()=>{
   console.log(`connected db at PORT: ${PORT}`);
   app.listen(PORT);

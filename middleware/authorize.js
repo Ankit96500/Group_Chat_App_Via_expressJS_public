@@ -10,6 +10,8 @@ dotenv.config();
 export async function UserAuthorized(req, res, next) {
     try {
       const token = req.header('Authorization');
+      // console.log('show token',token);
+      
       if (!token) {
         res.status(401).json({ success: false, error: 'Unauthorized request. No token provided.' });
         return;

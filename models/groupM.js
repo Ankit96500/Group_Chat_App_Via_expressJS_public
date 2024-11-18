@@ -1,26 +1,23 @@
 import sequelize from "../config/database.js";
 import { DataTypes,Model } from "sequelize";
-import Group from "./groupM.js";
+import User from "./userM.js";
 
-class Chat extends Model{
+class Group extends Model{
 }
-    Chat.init({
+    Group.init({
         id:{
             type:DataTypes.INTEGER,
             allowNull:false,
             primaryKey:true,
             autoIncrement:true
         },
-        usChat:{
+        gpName:{
             type:DataTypes.STRING
         },
-        username:{
-            type:DataTypes.STRING
-        },
-        GroupID:{
+        UserID:{
             type:DataTypes.INTEGER,
             references:{
-                model:Group,
+                model:User,
                 key:"id",
             }
         }
@@ -30,12 +27,7 @@ class Chat extends Model{
     })
 
 
-
-
-
-
-
-    export default Chat
+    export default Group
 
 
 

@@ -14,8 +14,30 @@
     <div>
      <!-- error display -->
       <div id="custom-alert" style="display: none; background-color: red; color: white; padding: 10px; border-radius: 5px; margin: 15px 0;"></div>
-
     </div>
+    
+   
+    <div class="container">
+  
+        <p id="username"></p>
+        <p id="groupname"></p>
+
+        <!-- Create Group -->
+        <div class="create-group-container">
+            <h3>Create Group</h3>
+            <input type="text" id="group-name" placeholder="Enter group name">
+            <button id="create-group-button">Create Group</button>
+        </div>
+
+        <!-- Display Groups -->
+        <div class="groups-list-container">
+            <h3>Groups</h3>
+            <ul id="groups-list">
+                <!-- Dynamically added groups will appear here -->
+            </ul>
+        </div>
+    </div>
+
 
     <div class="chat-container">
         <header class="chat-header">

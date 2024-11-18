@@ -41,7 +41,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     max-width: 75%;
-    display: inline-block;
+    /* display: inline-block; */
     word-wrap: break-word;
 }
 
@@ -98,9 +98,6 @@ body {
 
 
 
-
-
-
 #logout {
     position: absolute;
     top: 20px;
@@ -123,4 +120,132 @@ body {
 #logout:active {
     background-color: #a93226; /* Even darker red on click */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.create-group-container, .groups-list-container {
+    width: 400px;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.create-group-container h3,
+.groups-list-container h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #473b7c;
+    font-weight: bold;
+}
+
+.create-group-container input {
+    width: calc(100% - 24px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#create-group-button {
+    background-color: #473b7c;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#create-group-button:hover {
+    background-color: #a071d6;
+    transform: scale(1.05);
+}
+
+/* Fixed height and scrollbar for groups list */
+.groups-list-container {
+    height: 250px; /* Set a fixed height */
+    overflow-y: auto; /* Enable scrolling for overflow */
+}
+
+#groups-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#groups-list li {
+    background-color: #f9f9f9;
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    color: #202020;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#groups-list li button {
+    background: none;
+    color: #e63421;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#groups-list li button:hover {
+    color: #c0392b;
+}
+
+/* Style for #username */
+#username {
+    font-size: 18px; /* Text size */
+    font-weight: bold; /* Bold text */
+    color: #2d89ef; /* Blue color */
+    margin: 10px 0; /* Spacing around the element */
+    text-align: center; /* Center align the text */
+    background-color: #f0f8ff; /* Light blue background */
+    /* padding: 10px; Space inside the box */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+/* Style for #groupname */
+#groupname {
+    font-size: 16px; /* Text size */
+    font-style: italic; /* Italic text */
+    color: #1a1a1a; /* Dark gray color */
+    margin: 10px 0; /* Spacing around the element */
+    text-align: left; /* Left align the text */
+    background-color: #e0e0e0; /* Light gray background */
+    /* //padding: 10px; Space inside the box */
+    border: 2px solid #cccccc; /* Border around the box */
+    border-radius: 10px; /* Rounded corners */
 }
