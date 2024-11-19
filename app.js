@@ -4,17 +4,21 @@ import cors from "cors";
 import dotenv from "dotenv";
 import sequelize from "./config/database.js";
 import { join } from "path";
-
-
+import { createServer } from "http";
+import { Server } from "socket.io";
 
 dotenv.config()
 const app = express();
-const PORT = process.env.PORT || 3000
+const server = createServer(app);
+const io = new Server(server);
+
+const PORT = process.env.PORT || 4000
 
 
 app.get('/',(req,res)=>{
   res.redirect('/client/account/login.html')
 })
+
 
 
 // middelware setup
@@ -34,10 +38,6 @@ import User from "./models/userM.js";
 import Chat from "./models/chatsM.js";
 import Group from "./models/groupM.js";
 
-// established association:
-// USER <--> CHATS
-// User.hasMany(Chat,{foreignKey:"UserID",as:"chattb",onDelete:"CASCADE"});
-// Chat.belongsTo(User,{foreignKey:"UserID",as:"usertb"});
 
 // USER <---> GROUP
 User.hasMany(Group,{foreignKey:"UserID",as:"grouptb",onDelete:"CASCADE"})
@@ -46,8 +46,6 @@ Group.belongsTo(User,{foreignKey:"UserID" ,as:"usertb"})
 // GROUP<---> CHATS
 Group.hasMany(Chat,{foreignKey:"GroupID",as:"chattb",onDelete:"CASCADE"});
 Chat.belongsTo(Group,{foreignKey:"GroupID",as:"grouptb"});
-
-
 
 
 
