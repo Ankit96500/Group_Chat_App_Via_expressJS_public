@@ -6,25 +6,23 @@ import sequelize from "./config/database.js";
 import { join } from "path";
 import { createServer } from "http";
 import { Server } from "socket.io";
-
+//----
 dotenv.config()
 const app = express();
-const server = createServer(app);
-const io = new Server(server);
 
 const PORT = process.env.PORT || 4000
-
 
 app.get('/',(req,res)=>{
   res.redirect('/client/account/login.html')
 })
 
 
-
 // middelware setup
 app.use(express.static(join(process.cwd(),"public")));
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors({
+  origin:"*"
+}))
 
 // loads routes
 import adminRoutes from "./routes/adminR.js";

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "http://localhost:3000"
+    const API_URL = "http://localhost:4000"
     const chatWindow = document.getElementById("chat-window");
     const messageInput = document.getElementById("message-input");
     const sendButton = document.getElementById("send-button");

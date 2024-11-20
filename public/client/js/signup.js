@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create a new user (POST)
    async function SignupUser(UserData) {
         try {
-            await axios.post('http://localhost:3000/admin/signup-user',UserData) 
+            await axios.post('http://localhost:4000/admin/signup-user',UserData) 
             alert('User Has Created Successfully ')
         } catch (error) {
             displayError(error);  // Example error message

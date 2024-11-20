@@ -45,7 +45,7 @@ export async function postSignupUser(req,res){
 export async function postLoginUser(req,res){
   const email = req.body.email;
   const password = req.body.password;
-
+ 
   try {
     // first check , given email exist or not
     const user = await User.findOne({
